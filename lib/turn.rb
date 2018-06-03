@@ -1,9 +1,15 @@
 def turn(board)
   puts "Please enter 1-9:"
-  input = gets.chomp.to_i
-  input_to_index(input)
-  
-  
+  input = gets.strip
+  input = input_to_index(input)
+  valid = valid_move?(board, input)
+  if valid == true
+      move(board, input, "X")
+      display_board(board)
+  else
+    puts "please enter 1-9:"
+    input = gets.strip
+  end
 end
 
 def input_to_index(input)
